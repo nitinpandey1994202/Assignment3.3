@@ -1,0 +1,57 @@
+QUE. List the components of Hadoop 2.x and explain them in detail.
+ANS:-
+  As we know hadoop 2.x is the extension of the hadoop 1.x because 1.x had the certain limitations such as no. of machine,
+  metadata problem.
+There are 3 major components of Hadoop:
+1)HDFS
+2)YARN
+3)MapReduce
+
+:::How Hadoop 2.x Major Components Works
+
+Hadoop 2.x components follow some architecture to interact each other and
+to work parallel in a reliable, highly available and fault-tolerant manner.
+1)  All Master Nodes and Slave Nodes contains both MapReduce and HDFS Components.
+2)  One Master Node has two components:
+      1)Resource Manager(YARN or MapReduce v2)
+      2)HDFS
+It’s HDFS component is also knows as NameNode. It’s NameNode is used to store Meta Data.
+
+2) In Hadoop 2.x, some more Nodes acts as Master Nodes.Master Node has 3 components:
+       1)Node Manager
+       2)Application Master
+       3)Data Node
+These Slave Nodes have two components:
+         1)Node Manager
+         2)HDFS
+It’s HDFS component is also knows as Data Node. It’s Data Node component is 
+used to store actual our application Big Data. These nodes does not contain Application Master component.
+
+DESCRIPTION:
+1) Resource Manager:
+     1)Resource Manager is a Per-Cluster Level Component.
+     2)Resource Manager is again divided into two components:
+                                 1)Scheduler
+                                 2)Application Manager
+     3)Resource Manager’s Scheduler is :
+         1)Responsible to scheduler required resources to Applications (that is Per-Application Master).
+         2)It does only scheduling.
+         3)It does care about monitoring or tracking of those Applications.
+
+2)Application Master:
+
+  1)Application Master is a per-application level component. It is responsible for:
+                 1)Managing assigned Application Life cycle.
+                 2)It interacts with both Resource Manager’s Scheduler and Node Manager
+                 3)It interacts with Scheduler to acquire required resources.
+                 4)It interacts with Node Manager to execute assigned tasks and monitor those task’s status.
+   :Node Manager:
+
+           1)Node Manager is a Per-Node Level component.
+           2)It is responsible for:
+                       1)Managing the life-cycle of the Container.
+                       2)Monitoring each Container’s Resources utilization.
+IMPORTANT POINTS:
+            1)Resource Manager is Per-Cluster component where as Application Master is per-application component.
+            2)Both Hadoop 1.x and Hadoop 2.x Architectures follow Master-Slave Architecture Model.
+                   
